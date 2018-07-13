@@ -51,4 +51,4 @@ int main() {
     res.push_back(e);
     for (int i = (int)res.size() - 1; i >= 0; i--) cout << res[i] << " ";
     return 0;
-}
+} 
