@@ -9,20 +9,7 @@ pair <int, int> trace[N][maxn];
 bool dp[N][maxn];
 vector <int> g[N];
 
-void dfs (int u) {
-    for (int i = 0; i < g[u].size(); i++) {
-        for (int j = 0; j <= b; j++) {
-            if (dp[u][j]) {
-                int v = g[u][i];
-                if (j + a[v] <= b && !dp[v][j + a[v]]) {
-                dp[v][j + a[v]] = true;
-                trace[v][j + a[v]] = make_pair(u, j);
-                dfs(v);
-                }
-            }
-        }
-    }
-} int main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
