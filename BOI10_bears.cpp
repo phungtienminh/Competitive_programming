@@ -32,7 +32,7 @@ bool check (int mid) {
             }
         }
 
-        if (!hasIntersect) return true;
+        if (!hasIntersect) return true; 
     }
 
     return false;
