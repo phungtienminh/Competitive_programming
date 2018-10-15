@@ -4,7 +4,7 @@ using namespace std;
 
 const int N = 5e3 + 5;
 
-vector <int> g[N], tree[N];
+vector <int> g[N];
 bool visited[N];
 int val[N], n, ans = 1e9;
 
@@ -16,20 +16,10 @@ void bfs (int s) {
             if (!visited[v]) {
                 visited[v] = true;
                 q.push(v);
-                tree[u].push_back(v);
+                val[v] = val[u] + 1;
             }
         }
     }
-}
-
-void dfs (int u) {
-    int cur = 1;
-    for (auto v: tree[u]) {
-        dfs(v);
-        cur += val[v];
-    }
-
-    val[u] = cur;
 }
 
 int main(){
@@ -43,8 +33,8 @@ int main(){
     }
 
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) tree[j].clear();
         memset(visited, 0, sizeof(visited));
+        val[i] = 1;
         bool f = true;
 
         bfs(i);
@@ -57,7 +47,6 @@ int main(){
         }
 
         if (!f) continue;
-        dfs(i);
 
         int sum = 0;
         for (int j = 1; j <= n; j++) sum += val[j];
