@@ -15,6 +15,7 @@ int main(){
     for (int i = 1; i <= n; i++) {
         int pos = lower_bound(b + 1, b + n + 1, -a[i]) - b;
         if (pos == 1) ans = min(ans, abs(a[i] + b[pos]));
+        else if (pos == n + 1) ans = min(ans, abs(a[i] + b[pos - 1]));
         else ans = min(ans, min(abs(a[i] + b[pos]), abs(a[i] + b[pos - 1])));
     }
 
